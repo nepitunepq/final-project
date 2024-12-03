@@ -79,7 +79,7 @@ app.post("/update-score", async (req, res) => {
 
 app.get('/leaderboard', async (req, res) => {
   try {
-    const leaderboard = await User.find()
+    const leaderboard = await User.findById(userId)
       .sort({ score: -1 }) // Sort by score in descending order
       .limit(10)           // Limit to top 10 users
       .select('username score'); // Select only username and score fields

@@ -79,24 +79,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-//   document.addEventListener('DOMContentLoaded', () => {
-//     const leaderboardDiv = document.getElementById('leaderboard');
+  document.addEventListener('DOMContentLoaded', () => {
+    const leaderboardDiv = document.getElementById('leaderboard');
   
-//     // Fetch and display leaderboard
-//     fetch('http://localhost:3222/leaderboard')
-//       .then((response) => response.json())
-//       .then((data) => {
-//         // Create a list of leaderboard entries
-//         const leaderboardHtml = data
-//           .map((player, index) => {
-//             return `<p>${index + 1}. ${player.username} - ${player.score} points</p>`;
-//           })
-//           .join('');
-//         leaderboardDiv.innerHTML = leaderboardHtml;
-//       })
-//       .catch((error) => {
-//         console.error('Error fetching leaderboard:', error);
-//         leaderboardDiv.innerHTML = '<p>Failed to load leaderboard.</p>';
-//       });
-//   });
+    // Fetch and display leaderboard
+    fetch('http://localhost:3222/leaderboard')
+      .then((response) => response.json())
+      .then((data) => {
+        // Create a list of leaderboard entries
+        const leaderboardHtml = data
+          .map((player, index) => {
+            return `<p>${index + 1}. ${player.username} - ${player.score} points</p>`;
+          })
+          .join('');
+        leaderboardDiv.innerHTML = leaderboardHtml;
+      })
+      .catch((error) => {
+        console.error('Error fetching leaderboard:', error);
+        leaderboardDiv.innerHTML = '<p>Failed to load leaderboard.</p>';
+      });
+  });
   
