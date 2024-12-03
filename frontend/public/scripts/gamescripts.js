@@ -4,7 +4,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Select elements
   const catImage = document.getElementById("cat1");
   const scoreElement = document.getElementById("score");
+  const photoButton = document.getElementById("photo");
   const userId = JSON.parse(localStorage.getItem("user"))._id;
+
+  // Create an Audio object for the cat sound
+  const catMeowSound = new Audio("./images/cat_meow.wav");
 
   // Fetch the current score from the backend
   try {
@@ -19,10 +23,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     scoreElement.textContent = "Score: 0"; // Fallback to 0 if there's an error
   }
 
-  // Handle cat image click and score increment
-  const photoButton = document.getElementById("photo");
+  // Handle cat image click, sound, and score increment
   photoButton.addEventListener("mousedown", () => {
     catImage.src = "./images/cat2.png"; // Change to the pressed cat image
+
+    // Play the cat meow sound
+    catMeowSound.currentTime = 0; // Reset the sound to the start
+    catMeowSound.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
 
     // Increment score and display it
     let currentScore = parseInt(scoreElement.textContent.replace("Score: ", ""), 10);
