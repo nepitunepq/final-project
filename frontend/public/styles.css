@@ -9,7 +9,7 @@
 
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'poppins', sans-serif;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -31,6 +31,7 @@ h1 {
 }
 
 h1:hover {
+  font-size: 3.5rem;
   color: #ffffff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   transition: .3s;
@@ -199,103 +200,56 @@ form input {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
 }
 
-/* General Responsive Adjustments */
-@media (max-width: 1200px) {
-  body {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 2.5rem; /* Slightly smaller header text for medium screens */
-  }
-
-  #leaderboard {
-    width: 80%; /* Reduce leaderboard width for medium screens */
-  }
-
-  #leaderboard-btn a {
-    padding: 10px 20px; /* Adjust button padding */
-    font-size: 1.1rem; /* Slightly smaller font size */
-  }
-}
-
-/* Mobile-Specific Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
-  body {
-    flex-direction: column; /* Stack content vertically */
-    align-items: stretch; /* Stretch content to fit screen width */
-  }
-
   h1 {
-    font-size: 2rem; /* Smaller header text */
-    margin: 10px 0; /* Reduce margin */
+    font-size: 2.5rem;
   }
 
-  form {
-    padding: 15px;
-    max-width: 90%; /* Use most of the screen width */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  h1:hover{
+    font-size: 3rem;
   }
 
-  #leaderboard {
-    width: 95%; /* Use most of the screen width */
-    padding: 15px; /* Reduce padding */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  #score {
+    font-size: 1.5rem;
   }
 
-  #leaderboard-btn a {
-    font-size: 1rem; /* Smaller button text */
-    padding: 10px 15px; /* Reduce padding for smaller buttons */
+  #photo img {
+    max-width: 250px;
   }
 
-  #leaderboard p {
-    font-size: 1rem; /* Reduce leaderboard item font size */
-    padding: 8px; /* Smaller padding for leaderboard items */
-    flex-direction: column; /* Stack text vertically */
-    align-items: flex-start; /* Align text to the left */
-  }
-
-  #photo {
-    transform: scale(0.9); /* Slightly smaller cat image */
-    margin-top: 15px; /* Reduce spacing */
-  }
-
-  #back-to-game {
-    font-size: 1rem; /* Smaller button text */
+  #leaderboard-btn {
+    font-size: 0.9rem; /* Smaller button text */
     padding: 10px 20px; /* Adjust padding */
   }
+
+  #menu-btn {
+    font-size: 0.9rem; /* Smaller button text */
+    padding: 10px 20px; /* Adjust padding */
+  }
+
+
 }
 
-/* Ultra-Small Screens (Below 480px) */
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.8rem; /* Smaller header text */
+    font-size: 2rem;
   }
 
-  #leaderboard p {
-    font-size: 0.9rem; /* Even smaller font size */
-    padding: 5px; /* Reduced padding */
+  #score {
+    font-size: 1.2rem;
   }
 
-  #leaderboard-btn a {
-    font-size: 0.9rem; /* Smaller button text */
-    padding: 8px 12px; /* Adjust button size */
+  #photo img {
+    max-width: 200px;
   }
 
-  #back-to-game {
-    font-size: 0.9rem; /* Smaller button text */
-    padding: 8px 12px; /* Adjust padding */
+  #leaderboard-btn,
+  #menu-btn {
+    font-size: 0.8rem;
+    padding: 8px 16px;
   }
 
-  #leaderboard {
-    padding: 10px; /* Less padding */
-    font-size: 0.9rem; /* Smaller leaderboard text */
-  }
-
-  form input {
-    font-size: 0.9rem; /* Smaller input font size */
-    padding: 8px; /* Adjust padding */
-  }
 }
 
 /* Menu Button Styling */
