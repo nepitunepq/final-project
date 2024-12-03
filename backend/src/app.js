@@ -106,7 +106,3 @@ app.post('/update-score', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
