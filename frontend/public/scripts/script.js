@@ -21,7 +21,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem("user", JSON.stringify(data)); // Store user data in localStorage
-      window.location.href = "game.html"; // Redirect to the game page
+      window.location.href = "game.htmla"; // Redirect to the game page
     } else {
       alert("Failed to process the username. Please try again.");
     }
