@@ -58,4 +58,26 @@ if (document.getElementById("login-form")) {
   
     fetchLeaderboard();
   }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Select the image element
+    const catImage = document.getElementById("cat1");
+  
+    // Add a mousedown event listener to change the image to cat2.png
+    document.getElementById("photo").addEventListener("mousedown", () => {
+      catImage.src = "./images/cat2.png"; // Change to the pressed cat
+    });
+  
+    // Add a mouseup event listener to change the image back to cat.png
+    document.getElementById("photo").addEventListener("mouseup", () => {
+      catImage.src = "./images/cat.png"; // Change back to the original cat
+    });
+  
+    // Optional: Add a mouseleave event to reset the image if the mouse leaves the button
+    document.getElementById("photo").addEventListener("mouseleave", () => {
+      catImage.src = "./images/cat.png"; // Reset to the original cat
+    });
+  });
+  
+
   

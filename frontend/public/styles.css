@@ -73,6 +73,17 @@ form input {
   background: #45a049;
 }
 
+#photo {
+  display: flex; /* Align the content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-top: 20px; /* Adjust the spacing above */
+  position: relative; /* Allow fine positioning */
+  background: transparent;
+  border: none;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   h1 {
