@@ -17,6 +17,4 @@ document.addEventListener("DOMContentLoaded", () => {
   filterButton.addEventListener("click", () => {
     handleFilterItem();
   });
-});
-
-//i hate this subject
+})
