@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
   margin: 0;
@@ -31,9 +31,7 @@ h1 {
 }
 
 h1:hover {
-  font-size: 3rem;
   color: #ffffff;
-  margin-bottom: 20px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   transition: .3s;
 }
@@ -57,100 +55,22 @@ form input {
   font-size: 1rem;
 }
 
-/* Button Group for Login and Register */
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 20px; /* Adds spacing between the buttons */
-  margin-top: 20px;
-}
-
-.button-group button {
-  flex: 1;
+/* Play Button */
+#play-button {
   background: #4caf50;
-  color: #fff;
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.button-group button:hover {
-  background: #45a049;
-}
-
-/* Game Page Styles */
-#photo img {
-  width: 200px;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-#photo img:active {
-  transform: scale(0.9);
-}
-
-#score {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 20px;
-  color: #222;
-}
-
-#leaderboard-btn {
-  background: #2196f3;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-top: 20px;
-}
-
-#leaderboard-btn:hover {
-  background: #1e88e5;
-}
-
-/* Leaderboard Styles */
-#leaderboard {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  max-width: 400px;
   width: 100%;
-  margin: 20px auto;
-  text-align: left;
-}
-
-#leaderboard p {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-button {
-  margin-top: 10px;
-}
-
-/* Back to Game Button */
-button {
-  background: #ff5722;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
+  margin-top: 15px;
   transition: background 0.3s ease;
 }
 
-button:hover {
-  background: #e64a19;
+#play-button:hover {
+  background: #45a049;
 }
 
 /* Responsive Design */
@@ -159,19 +79,7 @@ button:hover {
     font-size: 2.5rem;
   }
 
-  #photo img {
-    width: 150px;
-  }
-
   form {
     padding: 15px;
-  }
-
-  #score {
-    font-size: 1.5rem;
-  }
-
-  #leaderboard {
-    width: 90%;
   }
 }
