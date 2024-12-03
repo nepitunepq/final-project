@@ -30,3 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menu-btn");
+    menuBtn.addEventListener("click", () => {
+        window.location.href = "index.html";
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const backBtn = document.getElementById("back-to-game");
+    backBtn.addEventListener("click", () => {
+        window.location.href = "game.html";
+    });
+});

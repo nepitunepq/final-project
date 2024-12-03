@@ -100,3 +100,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
   
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menu-btn");
+  menuBtn.addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const leaderboardBtn = document.getElementById("leaderboard-btn");
+  leaderboardBtn.addEventListener("click", () => {
+    window.location.href = "leaderboard.html";
+  });
+});

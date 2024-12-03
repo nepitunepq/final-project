@@ -110,7 +110,7 @@ form input {
   background: none; /* Remove default button background */
 }
 
-#leaderboard-btn a {
+#leaderboard-btn {
   display: inline-block; /* Make the link behave like a button */
   padding: 12px 24px; /* Add padding for the clickable area */
   font-size: 1.2rem; /* Set font size */
@@ -118,20 +118,20 @@ form input {
   color: #ffffff; /* White text */
   background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
   text-decoration: none; /* Remove underline */
-  border-radius: 12px; /* Rounded corners */
+  border-radius: 30px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
   transition: all 0.3s ease; /* Smooth transitions */
   text-align: center; /* Center-align text */
 }
 
-#leaderboard-btn a:hover {
+#leaderboard-btn :hover {
   background: linear-gradient(135deg, #0056b3, #003d80); /* Darker gradient on hover */
   transform: scale(1.05); /* Slightly enlarge on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow */
 }
 
-#leaderboard-btn a:active {
+#leaderboard-btn :active {
   transform: scale(0.95); /* Slightly shrink on click */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
 }
@@ -296,5 +296,32 @@ form input {
     font-size: 0.9rem; /* Smaller input font size */
     padding: 8px; /* Adjust padding */
   }
+}
+
+/* Menu Button Styling */
+#menu-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff5722, #e64a19);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+#menu-btn:hover {
+  background: linear-gradient(135deg, #e64a19, #d84315);
+  transform: scale(1.05); /* Slight enlargement */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#menu-btn:active {
+  transform: scale(0.95); /* Pressed effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
