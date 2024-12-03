@@ -1,9 +1,10 @@
-import { BACKEND_URL } from "./config";
+import { BACKEND_URL } from "./config.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const leaderboardTable = document.querySelector('#leaderboard-table tbody');
     const backToGameButton = document.getElementById('back-to-game');
-  
+    const menuButton = document.getElementById("menu-btn");
+
     // Fetch leaderboard data from the backend
     fetch(BACKEND_URL+'/api/scores/leaderboard') // Update the URL to your backend route
       .then((response) => response.json())
@@ -30,18 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     backToGameButton.addEventListener('click', () => {
       window.location.href = 'game.html'; // Redirect to game.html
     });
+
+    menuButton.addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
   });
   
-document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById("menu-btn");
-    menuBtn.addEventListener("click", () => {
-        window.location.href = "index.html";
-    });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const backBtn = document.getElementById("back-to-game");
-    backBtn.addEventListener("click", () => {
-        window.location.href = "game.html";
-    });
-});

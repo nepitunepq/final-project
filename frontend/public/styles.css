@@ -200,56 +200,45 @@ form input {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.5rem;
   }
 
-  h1:hover{
-    font-size: 3rem;
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
   }
 
-  #score {
-    font-size: 1.5rem;
+  table {
+    font-size: 0.9rem;
   }
 
-  #photo img {
-    max-width: 250px;
+  th, td {
+    padding: 8px;
   }
-
-  #leaderboard-btn {
-    font-size: 0.9rem; /* Smaller button text */
-    padding: 10px 20px; /* Adjust padding */
-  }
-
-  #menu-btn {
-    font-size: 0.9rem; /* Smaller button text */
-    padding: 10px 20px; /* Adjust padding */
-  }
-
-
 }
 
 @media (max-width: 480px) {
   h1 {
     font-size: 2rem;
+    margin: 10px 0;
   }
 
-  #score {
-    font-size: 1.2rem;
-  }
-
-  #photo img {
-    max-width: 200px;
-  }
-
-  #leaderboard-btn,
-  #menu-btn {
+  button {
     font-size: 0.8rem;
     padding: 8px 16px;
+    width: 80%; /* Full-width buttons on mobile */
   }
 
+  table {
+    width: 95%; /* Expand to almost full width */
+    font-size: 0.8rem;
+  }
+
+  th, td {
+    padding: 6px;
+  }
 }
 
 /* Menu Button Styling */
