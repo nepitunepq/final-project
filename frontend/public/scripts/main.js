@@ -16,5 +16,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterButton = document.getElementById("filter-button");
   filterButton.addEventListener("click", () => {
     handleFilterItem();
-  });
+  });asdasdasd
 });
