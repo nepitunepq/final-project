@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const leaderboardDiv = document.getElementById('leaderboard');
   
     // Fetch and display leaderboard
-    fetch('http://localhost:3222/leaderboard')
+    fetch(BACKEND_URL+'/leaderboard')
       .then((response) => response.json())
       .then((data) => {
         // Create a list of leaderboard entries
