@@ -1,9 +1,11 @@
+import { BACKEND_URL } from "./config";
+
 document.addEventListener('DOMContentLoaded', () => {
     const leaderboardTable = document.querySelector('#leaderboard-table tbody');
     const backToGameButton = document.getElementById('back-to-game');
   
     // Fetch leaderboard data from the backend
-    fetch('http://localhost:3222/api/scores/leaderboard') // Update the URL to your backend route
+    fetch(BACKEND_URL+'/api/scores/leaderboard') // Update the URL to your backend route
       .then((response) => response.json())
       .then((data) => {
         // Populate the table with leaderboard data
