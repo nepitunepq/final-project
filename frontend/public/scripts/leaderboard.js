@@ -42,11 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
           // Add medal emoji for the top 3 ranks
           let rankWithMedal;
           if (rank === 1) {
-            rankWithMedal = `🥇${rank}`;
+            rankWithMedal = `🥇`;
           } else if (rank === 2) {
-            rankWithMedal = `🥈${rank}`;
+            rankWithMedal = `🥈`;
           } else if (rank === 3) {
-            rankWithMedal = `🥉${rank}`;
+            rankWithMedal = `🥉`;
           } else {
             rankWithMedal = `${rank}`;
           }
