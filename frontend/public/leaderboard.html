@@ -6,63 +6,6 @@
   <title>Leaderboard</title>
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="./scripts/leaderboard.js"></script>
-  <style>
-    table {
-      width: 50%;
-      margin: 0 auto;
-      border-collapse: collapse;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    th, td {
-      border: 3px solid black;
-      padding: 10px;
-    }
-
-    th {
-      background-color: black;
-      color: white;
-    }
-
-    td {
-      background-color: #d3d3d3; /* Gray background */
-      color: black; /* Black text */
-    }
-
-    td:first-child, th:first-child {
-      width: 10%; /* Smaller width for Rankings column */
-    }
-
-    td:nth-child(2), td:nth-child(3), th:nth-child(2), th:nth-child(3) {
-      width: 45%; /* Equal width for Username and Scores columns */
-    }
-
-    .button-container {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-    }
-
-    #back-to-game {
-      background-color: green;
-      color: white;
-    }
-
-    #menu-btn {
-      background-color: orange;
-      color: white;
-    }
-  </style>
 </head>
 <body>
   <h1 style="text-align: center;">Leaderboard</h1>
@@ -74,17 +17,8 @@
         <th>Scores</th>
       </tr>
     </thead>
-    <tbody>
-      <tr><td>1</td><td></td><td></td></tr>
-      <tr><td>2</td><td></td><td></td></tr>
-      <tr><td>3</td><td></td><td></td></tr>
-      <tr><td>4</td><td></td><td></td></tr>
-      <tr><td>5</td><td></td><td></td></tr>
-      <tr><td>6</td><td></td><td></td></tr>
-      <tr><td>7</td><td></td><td></td></tr>
-      <tr><td>8</td><td></td><td></td></tr>
-      <tr><td>9</td><td></td><td></td></tr>
-      <tr><td>10</td><td></td><td></td></tr>
+    <tbody id="leaderboard-table">
+      <!-- Rows will be dynamically populated here -->
     </tbody>
   </table>
   <div class="button-container">

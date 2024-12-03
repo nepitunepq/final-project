@@ -1,24 +1,27 @@
 import { BACKEND_URL } from "./config.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-  const leaderboardTable = document.querySelector('#leaderboard-table tbody');
+  const leaderboardTable = document.querySelector('#leaderboard-table');
   const backToGameButton = document.getElementById('back-to-game');
   const menuButton = document.getElementById("menu-btn");
 
   // Fetch leaderboard data from the backend
-  fetch(`${BACKEND_URL}/leaderboard`) // Use the new leaderboard endpoint
-    .then((response) => response.json())
+  fetch(`${BACKEND_URL}/leaderboard`)
+    .then((response) => {
+      if (!response.ok) throw new Error("Failed to fetch leaderboard");
+      return response.json();
+    })
     .then((data) => {
-      // Populate the table with leaderboard data
+      console.log(data); // Debug: Log fetched data
       leaderboardTable.innerHTML = data
         .map(
           (player, index) => `
-          <tr>
-            <td>${index + 1}</td>
-            <td>${player.username}</td>
-            <td>${player.score}</td>
-          </tr>
-        `
+            <tr>
+              <td>${index + 1}</td>
+              <td>${player.username}</td>
+              <td>${player.score}</td>
+            </tr>
+          `
         )
         .join('');
     })
@@ -27,13 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
       leaderboardTable.innerHTML = '<tr><td colspan="3">Failed to load leaderboard.</td></tr>';
     });
 
-  // Add functionality to the "Back to Game" button
+  // Back button
   backToGameButton.addEventListener('click', () => {
-    window.location.href = 'game.html'; // Redirect to game.html
+    window.location.href = 'game.html';
   });
 
-  // Add functionality to the "Menu" button
+  // Menu button
   menuButton.addEventListener('click', () => {
-    window.location.href = 'index.html'; // Redirect to index.html
+    window.location.href = 'index.html';
   });
 });
