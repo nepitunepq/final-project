@@ -1,5 +1,7 @@
 import { BACKEND_URL } from "./config.js";
 
+console.log('leaderboard.js loaded')
+
 document.addEventListener("DOMContentLoaded", () => {
   const leaderboardTable = document.querySelector("#leaderboard-table");
   const backToGameButton = document.getElementById("back-to-game");

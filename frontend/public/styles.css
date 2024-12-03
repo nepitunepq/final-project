@@ -48,6 +48,47 @@ form {
   width: 100%;
 }
 
+/* General Table Styles */
+table {
+  width: 60%; /* Adjust the width to make it more readable */
+  margin: 20px auto; /* Center the table */
+  border-collapse: collapse; /* Ensure no double borders */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for elevation */
+  border: 2px solid #333; /* Dark border around the table */
+  background-color: #ffffff; /* White background for the table */
+  border-radius: 10px; /* Rounded corners for the table */
+  overflow: hidden; /* Ensures the rounded corners apply to the entire table */
+}
+
+th, td {
+  padding: 15px; /* More padding for better readability */
+  border: 1px solid #ddd; /* Light border for table cells */
+  font-size: 1rem; /* Uniform font size */
+}
+
+th {
+  background-color: #333; /* Dark background for headers */
+  color: white; /* White text for headers */
+  font-weight: bold;
+}
+
+td {
+  background-color: #f9f9f9; /* Light gray for table cells */
+  color: #333; /* Dark text for content */
+}
+
+/* Alternate Row Styling */
+tr:nth-child(even) td {
+  background-color: #f1f1f1; /* Slightly darker gray for even rows */
+}
+
+/* Hover Effect for Rows */
+tr:hover td {
+  background-color: #e0e0e0; /* Highlight row on hover */
+}
+
+
 #score {
   font-size: 2rem;
   font-weight: bold;
@@ -213,10 +254,12 @@ form input {
 
   table {
     font-size: 0.9rem;
+    width: 80%; /* Reduce width for smaller screens */
   }
 
   th, td {
-    padding: 8px;
+    padding: 10px; /* Reduce padding for smaller screens */
+    font-size: 0.9rem; /* Smaller font size */
   }
 }
 
@@ -233,12 +276,13 @@ form input {
   }
 
   table {
-    width: 95%; /* Expand to almost full width */
+    width: 90%; /* Expand to almost full width */
     font-size: 0.8rem;
   }
 
   th, td {
-    padding: 6px;
+    padding: 8px; /* Compact padding */
+    font-size: 0.8rem; /* Compact font size */
   }
 }
 
