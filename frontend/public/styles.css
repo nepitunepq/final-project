@@ -46,6 +46,11 @@ form {
   width: 100%;
 }
 
+#score {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 form input {
   width: 90%;
   padding: 10px;
@@ -81,6 +86,10 @@ form input {
   position: relative; /* Allow fine positioning */
   background: transparent;
   border: none;
+}
+
+#photo:active{
+  transform: scale(1.2);
 }
 
 

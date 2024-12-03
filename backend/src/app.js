@@ -73,40 +73,36 @@ app.post("/update-score", async (req, res) => {
   }
 });
 
-// Get leaderboard
-app.get("/leaderboard", async (req, res) => {
+app.get('/leaderboard', async (req, res) => {
   try {
-    const topUsers = await User.find()
-      .sort({ score: -1 })
-      .limit(3)
-      .select("username score");
+    const leaderboard = await User.find()
+      .sort({ score: -1 }) // Sort by score in descending order
+      .limit(10)           // Limit to top 10 users
+      .select('username score'); // Select only username and score fields
 
-    res.json(topUsers);
+    res.status(200).json(leaderboard);
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch leaderboard" });
+    res.status(500).json({ error: 'Failed to fetch leaderboard' });
   }
-
-  const path = require("path");
-
-// Serve static files from the public folder
-app.use(express.static(path.join(__dirname, "public")));
-
-// Default route to serve the login page
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Route to serve the game page
-app.get("/game", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "game.html"));
+
+app.post('/update-score', async (req, res) => {
+  const { userId, increment } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+
+    user.score += increment; // Increment the user's score
+    await user.save();
+
+    res.status(200).json({ score: user.score });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
-// Route to serve the leaderboard page
-app.get("/leaderboard", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "leaderboard.html"));
-});
-
-});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
