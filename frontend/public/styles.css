@@ -131,6 +131,34 @@ form input {
   color: #333;
 }
 
+/* Leaderboard Button */
+#leaderboard-btn {
+  margin-top: 20px; /* Space above the button */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 1.2rem; /* Button text size */
+  font-weight: bold; /* Make text bold */
+  color: #ffffff; /* White text */
+  background: #007bff; /* Blue background */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+/* Button Hover Effect */
+#leaderboard-btn:hover {
+  background: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #leaderboard-btn {
+    font-size: 1rem; /* Smaller text size for smaller screens */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+  }
+}
 
 
 /* Responsive Design */
