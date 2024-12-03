@@ -72,3 +72,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 });
+photoButton.addEventListener("touchstart", (event) => {
+  catImage.src = "./images/cat2.png"; // Change to the pressed cat image
+
+    // Play the cat meow sound
+    catMeowSound.currentTime = 0; // Reset the sound to the start
+    catMeowSound.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+
+    // Increment score and display it
+    let currentScore = parseInt(scoreElement.textContent.replace("Score: ", ""), 10);
+    currentScore++;
+    scoreElement.textContent = `Score; ${currentScore}`;
+
+    // Send the updated score to the backend
+    fetch(`${BACKEND_URL}/update-score`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId, increment: 1 }),
+    }).catch((error) => console.error("Error updating score:", error));
+});
+
+photoButton.addEventListener("touchend", (event) => {
+  catImage.src = "./images/cat.png"; // Change to the pressed cat image
+});
+
+photoButton.addEventListener("touchmove", (event) => {
+  catImage.src = "./images/cat.png"; // Change to the pressed cat image
+});
