@@ -22,10 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
           )
           .join('');
       })
-      .catch((error) => {
-        console.error('Error fetching leaderboard:', error);
-        leaderboardTable.innerHTML = '<tr><td colspan="3">Failed to load leaderboard.</td></tr>';
-      });
+      // .catch((error) => {
+      //   console.error('Error fetching leaderboard:', error);
+      //   leaderboardTable.innerHTML = '<tr><td colspan="3">Failed to load leaderboard.</td></tr>';
+      // });
+
+      // ^^ need to uncomment back
   
     // Add functionality to the "Back to Game" button
     backToGameButton.addEventListener('click', () => {
