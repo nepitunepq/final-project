@@ -60,11 +60,10 @@ app.post("/user", async (req, res) => {
 export default app;
 // Update score
 app.post("/update-score", async (req, res) => {
-  const { token, increment } = req.body;
+  const { userId, increment } = req.body;
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.userId);
+    const user = await User.findById(userId)
 
     if (!user) return res.status(404).json({ error: "User not found" });
 
@@ -73,6 +72,7 @@ app.post("/update-score", async (req, res) => {
 
     res.json({ score: user.score });
   } catch (error) {
+    console.error('at 400', error);
     res.status(400).json({ error: "Invalid request" });
   }
 });

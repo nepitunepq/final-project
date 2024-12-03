@@ -1,3 +1,4 @@
+import { BACKEND_URL } from "./config.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // Select the image element
@@ -51,14 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreElement = document.getElementById("score");
   
     let score = 0;
-    const userId = 'user-id-from-login'; // Replace with the actual user ID
+    const userId = JSON.parse(localStorage.getItem('user'))._id; // Replace with the actual user ID
   
     document.getElementById("photo").addEventListener("mousedown", () => {
       score++;
       scoreElement.textContent = `Score: ${score}`;
   
       // Send updated score to the backend
-      fetch('http://localhost:3222/update-score', {
+      fetch(BACKEND_URL+'/update-score', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,24 +79,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-  document.addEventListener('DOMContentLoaded', () => {
-    const leaderboardDiv = document.getElementById('leaderboard');
+//   document.addEventListener('DOMContentLoaded', () => {
+//     const leaderboardDiv = document.getElementById('leaderboard');
   
-    // Fetch and display leaderboard
-    fetch('http://localhost:3222/leaderboard')
-      .then((response) => response.json())
-      .then((data) => {
-        // Create a list of leaderboard entries
-        const leaderboardHtml = data
-          .map((player, index) => {
-            return `<p>${index + 1}. ${player.username} - ${player.score} points</p>`;
-          })
-          .join('');
-        leaderboardDiv.innerHTML = leaderboardHtml;
-      })
-      .catch((error) => {
-        console.error('Error fetching leaderboard:', error);
-        leaderboardDiv.innerHTML = '<p>Failed to load leaderboard.</p>';
-      });
-  });
+//     // Fetch and display leaderboard
+//     fetch('http://localhost:3222/leaderboard')
+//       .then((response) => response.json())
+//       .then((data) => {
+//         // Create a list of leaderboard entries
+//         const leaderboardHtml = data
+//           .map((player, index) => {
+//             return `<p>${index + 1}. ${player.username} - ${player.score} points</p>`;
+//           })
+//           .join('');
+//         leaderboardDiv.innerHTML = leaderboardHtml;
+//       })
+//       .catch((error) => {
+//         console.error('Error fetching leaderboard:', error);
+//         leaderboardDiv.innerHTML = '<p>Failed to load leaderboard.</p>';
+//       });
+//   });
   

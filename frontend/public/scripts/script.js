@@ -31,7 +31,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   }
 
 
-  /* from this point onwards */
+  /* from this point onwards 
 
   document.addEventListener("DOMContentLoaded", () => {
     // Select the image element
@@ -132,6 +132,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
         leaderboardDiv.innerHTML = '<p>Failed to load leaderboard.</p>';
       });
   });
-  
+*/  
   
 });
+
