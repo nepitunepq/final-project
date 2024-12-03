@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script class="game" type="module" src="./scripts/skill.js" defer></script>
+  <script type="module" src="./scripts/main.js" defer></script>
+  <script type="module" src="./scripts/webstyle.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="initial-scale=1.0, minimum-scale=1.0, maximum-scale = 1.0, width=device-width, user-scalable=no">
+  <title>POP TA &#8482;</title>
+  <!--Phaser-->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="additional_style.css" />
+  <link rel="icon" href="./resources/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="heading">
+    <h1>POP TA &#8482;</h1>
+    <h3>The ultimate battle of 2 TA</h3>
+  </div>
+
+  <div id="score">
+    <div id="ta1">0</div>
+    <div id="ta2" class="hidden">0</div>
+  </div>
+
+  <div class="ta_image">
+    <img src="./resources/TA_1.png" alt="Invalid" id="image_ta1" height="400px">
+    <img src="./resources/TA_2.png" alt="Invalid" id="image_ta2" height="400px" class="hidden">
+    <div id="game-container"></div>
+  </div>
+
+  <div class="chooser">
+    <div id="toggleButton">Switch TA</div>
+  </div>
+
+  <audio id="popSound1" src="./resources/pop1.mp3" preload="auto"></audio>
+  <audio id="popSound2" src="./resources/pop2.mp3" preload="auto"></audio>
+  <audio id="popSound3" src="./resources/pop3.mp3" preload="auto"></audio>
+  <audio id="popSound4" src="./resources/pop4.mp3" preload="auto"></audio>
+  <audio id="popSound5" src="./resources/pop5.mp3" preload="auto"></audio>
+
+  <div class="table">
+    <h2>Total Clicks</h2>
+    <table>
+      <tr>
+        <th>TA</th>
+        <th>Clicks</th>
+      </tr>
+      <tr>
+        <td>TA JomnoiZ</td>
+        <td id="ta1Clicks">0</td>
+      </tr>
+      <tr>
+        <td>TA Faro</td>
+        <td id="ta2Clicks">0</td>
+      </tr>
+      <p id="leadMessage"></p>
+    </table>
+    
+  </div>
+
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <p><span id="gameName">Welcome to POP TA™, the interactive clicker game!</span><br><br>
+      Choose your TA: JomnoiZ or Faro. Click your chosen TA to raise your score! Switch TAs anytime with the "Switch TA" button.<br><br>
+      Track your progress: See your current score at the top and total click at the table.<br><br>
+      Use special skills: Click the "Open" tab to reveal skills that boost your TA's score (Skills 1 & 3) or sabotage current TA (Skill 2 - perfect for switching TAs!).</p><br><br>
+      <strong>Ready to play? Tap anywhere to start cheering for your TA!</strong>
+      </div>
+</div>
+
+  <div class="tab">Open</div>
+  <div id="button-container">
+    <button id="skill1Button" class="circle-button1">Skill 1<br>+50 clicks</button>
+    <button id="skill2Button" class="circle-button2">Skill 2<br>-100 clicks</button>
+    <button id="skill3Button" class="circle-button3">Skill 3<br>temp x2</button>
+  </div>
+</body>
+
+<p class="image-authorization">All images have been authorized by the owner.</p>
+
+</html>
