@@ -30,6 +30,14 @@ h1 {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+h1:hover{
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: .3s;
+}
+
 /* Form Styles */
 form {
   background: #fff;
