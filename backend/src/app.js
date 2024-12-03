@@ -96,16 +96,18 @@ app.post("/update-score", async (req, res) => {
 
 app.get('/leaderboard', async (req, res) => {
   try {
-    const leaderboard = await User.findById(userId)
+    const leaderboard = await User.find()
       .sort({ score: -1 }) // Sort by score in descending order
       .limit(10)           // Limit to top 10 users
-      .select('username score'); // Select only username and score fields
+      .select('username score'); // Select only the username and score fields
 
     res.status(200).json(leaderboard);
   } catch (error) {
+    console.error('Error fetching leaderboard:', error);
     res.status(500).json({ error: 'Failed to fetch leaderboard' });
   }
 });
+
 
 
 app.post('/update-score', async (req, res) => {
