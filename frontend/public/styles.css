@@ -127,14 +127,15 @@ form input {
   display: flex; /* Align the content */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  margin-top: 20px; /* Adjust the spacing above */
+  margin-top: 25px; /* Adjust the spacing above */
+  margin-bottom: 25px;
   position: relative; /* Allow fine positioning */
   background: transparent;
   border: none;
 }
 
 #photo:active{
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 /* Leaderboard Container */
