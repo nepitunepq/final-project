@@ -330,3 +330,41 @@ form input {
   transform: scale(1.2);
   color: #45a049;
 }
+
+/* Larger screens (desktop) */
+@media (min-width: 768px) {
+  .sound-button {
+    font-size: 50px; /* Larger size for desktop */
+    bottom: 30px; /* Adjust position */
+    left: 30px;
+  }
+}
+
+/* Medium screens (tablet) */
+@media (max-width: 768px) {
+  #song-icon {
+    font-size: 40px; /* Medium size for tablets */
+    bottom: 20px;
+    left: 20px;
+  }
+
+  #score {
+    font-size: 2rem; /* Slightly smaller font size */
+    padding: 8px; /* Compact padding */
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 480px) {
+  #song-icon {
+    font-size: 30px; /* Smaller size for mobile */
+    bottom: 15px;
+    left: 15px;
+  }
+
+  #score {
+    font-size: 1.8rem; /* Smaller font size for mobile */
+    padding: 6px; /* Reduce padding further */
+    margin: 15px 0; /* Adjust spacing */
+  }
+}
