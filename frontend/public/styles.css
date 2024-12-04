@@ -315,3 +315,17 @@ form input {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+#song-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 40px;
+  color: #0e110e;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease
+}
+
+#song-icon:hover{
+  transform: scale(1.2);
+  color: #45a049;
+}

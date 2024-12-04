@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const scoreElement = document.getElementById("score");
   const photoButton = document.getElementById("photo");
   const userId = JSON.parse(localStorage.getItem("user"))._id;
+  const audio = document.getElementById("background-audio");
+  const songIcon = document.getElementById("song-icon");
 
   // Create an Audio object for the cat sound
   const catMeowSound = new Audio("./images/cat_meow.wav");
@@ -71,6 +73,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = "index.html"; // Redirect to menu page
     });
   }
+
+  // Attempt to play the audio automatically
+  audio.play().catch((error) => {
+    console.warn("Autoplay blocked. User interaction needed:", error);
+  });
+
+  // Add an event listener for user interaction to unmute
+  songIcon.addEventListener("click", () => {
+    if (audio.muted) {
+      audio.muted = false; // Unmute the audio
+      audio.play(); // Play the audio
+      songIcon.setAttribute("name", "volume-high-outline"); // Change icon
+    } else {
+      audio.muted = true; // Mute the audio
+      songIcon.setAttribute("name", "volume-mute-outline"); // Change icon
+    }
+  });
+
 });
 photoButton.addEventListener("touchstart", (event) => {
   catImage.src = "./images/cat2.png"; // Change to the pressed cat image
@@ -103,3 +123,4 @@ photoButton.addEventListener("touchend", (event) => {
 photoButton.addEventListener("touchmove", (event) => {
   catImage.src = "./images/cat.png"; // Change to the pressed cat image
 });
+
