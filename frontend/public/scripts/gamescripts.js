@@ -23,8 +23,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     scoreElement.textContent = "Score: 0"; // Fallback to 0 if there's an error
   }
 
+  // Initialize a click queue
+  const clickQueue = [];
+  let isProcessing = false;
+
+  // Function to process the click queue
+  const processQueue = async () => {
+    if (isProcessing || clickQueue.length === 0) return;
+
+    isProcessing = true;
+
+    while (clickQueue.length > 0) {
+      const increment = clickQueue.shift(); // Remove the first click from the queue
+
+      try {
+        // Send the updated score to the backend
+        await fetch(`${BACKEND_URL}/update-score`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userId, increment }),
+        });
+      } catch (error) {
+        console.error("Error updating score:", error);
+      }
+    }
+
+    isProcessing = false;
+  };
+
   // Handle cat image click, sound, and score increment
-  photoButton.addEventListener("mousedown", () => {
+  const handleCatClick = () => {
     catImage.src = "./images/cat2.png"; // Change to the pressed cat image
 
     // Play the cat meow sound
@@ -38,15 +68,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     currentScore++;
     scoreElement.textContent = `Score: ${currentScore}`;
 
-    // Send the updated score to the backend
-    fetch(`${BACKEND_URL}/update-score`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, increment: 1 }),
-    }).catch((error) => console.error("Error updating score:", error));
-  });
+    // Add the click to the queue and process the queue
+    clickQueue.push(1);
+    processQueue();
+  };
+
+  photoButton.addEventListener("mousedown", handleCatClick);
 
   // Reset cat image on mouseup or mouseleave
   photoButton.addEventListener("mouseup", () => {
@@ -54,6 +81,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   photoButton.addEventListener("mouseleave", () => {
     catImage.src = "./images/cat.png"; // Reset to the original cat image
+  });
+
+  // Handle touch events for mobile devices
+  photoButton.addEventListener("touchstart", (event) => {
+    handleCatClick(); // Use the same click handler for touch events
+    catImage.src = "./images/cat2.png"; // Change to the pressed cat image
+  });
+
+  photoButton.addEventListener("touchend", () => {
+    catImage.src = "./images/cat.png"; // Revert to the original cat image
   });
 
   // Add event listener to the leaderboard button
@@ -71,35 +108,4 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = "index.html"; // Redirect to menu page
     });
   }
-});
-photoButton.addEventListener("touchstart", (event) => {
-  catImage.src = "./images/cat2.png"; // Change to the pressed cat image
-
-    // Play the cat meow sound
-    catMeowSound.currentTime = 0; // Reset the sound to the start
-    catMeowSound.play().catch((error) => {
-      console.error("Error playing sound:", error);
-    });
-
-    // Increment score and display it
-    let currentScore = parseInt(scoreElement.textContent.replace("Score: ", ""), 10);
-    currentScore++;
-    scoreElement.textContent = `Score; ${currentScore}`;
-
-    // Send the updated score to the backend
-    fetch(`${BACKEND_URL}/update-score`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, increment: 1 }),
-    }).catch((error) => console.error("Error updating score:", error));
-});
-
-photoButton.addEventListener("touchend", (event) => {
-  catImage.src = "./images/cat.png"; // Change to the pressed cat image
-});
-
-photoButton.addEventListener("touchmove", (event) => {
-  catImage.src = "./images/cat.png"; // Change to the pressed cat image
 });
