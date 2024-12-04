@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Handle cat image click, sound, and score increment
   const handleCatClick = () => {
-    catImage.src = "./images/cat2.png"; // Change to the pressed cat image
+    catImage.src = "./images/green100.png"; // Change to the pressed cat image
 
     // Play the cat meow sound
     catMeowSound.currentTime = 0; // Reset the sound to the start
@@ -77,20 +77,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Reset cat image on mouseup or mouseleave
   photoButton.addEventListener("mouseup", () => {
-    catImage.src = "./images/cat.png"; // Revert to the original cat image
+    catImage.src = "./images/yellow40.png"; // Revert to the original cat image
   });
   photoButton.addEventListener("mouseleave", () => {
-    catImage.src = "./images/cat.png"; // Reset to the original cat image
+    catImage.src = "./images/yellow40.png"; // Reset to the original cat image
   });
 
   // Handle touch events for mobile devices
   photoButton.addEventListener("touchstart", (event) => {
     handleCatClick(); // Use the same click handler for touch events
-    catImage.src = "./images/cat2.png"; // Change to the pressed cat image
+    catImage.src = "./images/green100.png"; // Change to the pressed cat image
   });
 
   photoButton.addEventListener("touchend", () => {
-    catImage.src = "./images/cat.png"; // Revert to the original cat image
+    catImage.src = "./images/yellow40.png"; // Revert to the original cat image
   });
 
   // Add event listener to the leaderboard button
