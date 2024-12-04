@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const audio = document.getElementById("background-audio");
   const songIcon = document.getElementById("song-icon");
 
-  audio.volume = 0.5;
+  audio.volume = 0.1;
 
   // Create an Audio object for the cat sound
   const clickSound = new Audio("./images/click.wav");
