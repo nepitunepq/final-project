@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const songIcon = document.getElementById("song-icon");
 
   // Create an Audio object for the cat sound
-  const catMeowSound = new Audio("./images/cat_meow.wav");
+  const clickSound = new Audio("./images/click.wav");
 
   // Fetch the current score from the backend
   try {
@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     catImage.src = "./images/green100.png"; // Change to the pressed cat image
 
     // Play the cat meow sound
-    catMeowSound.currentTime = 0; // Reset the sound to the start
-    catMeowSound.play().catch((error) => {
+    clickSound.currentTime = 0; // Reset the sound to the start
+    clickSound.play().catch((error) => {
       console.error("Error playing sound:", error);
     });
 
@@ -133,8 +133,8 @@ photoButton.addEventListener("touchstart", (event) => {
   catImage.src = "./images/green100.png"; // Change to the pressed cat image
 
     // Play the cat meow sound
-    catMeowSound.currentTime = 0; // Reset the sound to the start
-    catMeowSound.play().catch((error) => {
+    clickSound.currentTime = 0; // Reset the sound to the start
+    clickSound.play().catch((error) => {
       console.error("Error playing sound:", error);
     });
 
