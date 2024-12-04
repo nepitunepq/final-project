@@ -123,17 +123,6 @@ form input {
   background: #45a049;
 }
 
-#photo {
-  display: flex; /* Align the content */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  margin-top: 25px; /* Adjust the spacing above */
-  margin-bottom: 25px;
-  position: relative; /* Allow fine positioning */
-  background: transparent;
-  border: none;
-}
-
 #photo:active{
   transform: scale(1.15);
 }
@@ -367,4 +356,31 @@ form input {
     padding: 6px; /* Reduce padding further */
     margin: 15px 0; /* Adjust spacing */
   }
+}
+@media (max-width: 600px) {
+  #photo {
+    max-width: 100%; /* Allow full width on small screens /
+    margin: 10px; / Reduce margins for smaller devices /
+  }
+
+  #photo img {
+    max-height: 60vh; / Ensure the photo fits smaller screens */
+  }
+}
+#photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#photo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
 }

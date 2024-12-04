@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 photoButton.addEventListener("touchstart", (event) => {
-  catImage.src = "./images/cat2.png"; // Change to the pressed cat image
+  catImage.src = "./images/green100.png"; // Change to the pressed cat image
 
     // Play the cat meow sound
     catMeowSound.currentTime = 0; // Reset the sound to the start
@@ -154,10 +154,10 @@ photoButton.addEventListener("touchstart", (event) => {
 });
 
 photoButton.addEventListener("touchend", (event) => {
-  catImage.src = "./images/cat.png"; // Change to the pressed cat image
+  catImage.src = "./images/yellow40.png"; // Change to the pressed cat image
 });
 
 photoButton.addEventListener("touchmove", (event) => {
-  catImage.src = "./images/cat.png"; // Change to the pressed cat image
+  catImage.src = "./images/yellow40.png"; // Change to the pressed cat image
 });
 
