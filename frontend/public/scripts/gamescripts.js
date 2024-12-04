@@ -25,9 +25,39 @@ document.addEventListener("DOMContentLoaded", async () => {
     scoreElement.textContent = "Score: 0"; // Fallback to 0 if there's an error
   }
 
+  // Initialize a click queue
+  const clickQueue = [];
+  let isProcessing = false;
+
+  // Function to process the click queue
+  const processQueue = async () => {
+    if (isProcessing || clickQueue.length === 0) return;
+
+    isProcessing = true;
+
+    while (clickQueue.length > 0) {
+      const increment = clickQueue.shift(); // Remove the first click from the queue
+
+      try {
+        // Send the updated score to the backend
+        await fetch(`${BACKEND_URL}/update-score`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userId, increment }),
+        });
+      } catch (error) {
+        console.error("Error updating score:", error);
+      }
+    }
+
+    isProcessing = false;
+  };
+
   // Handle cat image click, sound, and score increment
-  photoButton.addEventListener("mousedown", () => {
-    catImage.src = "./images/cat2.png"; // Change to the pressed cat image
+  const handleCatClick = () => {
+    catImage.src = "./images/green100.png"; // Change to the pressed cat image
 
     // Play the cat meow sound
     catMeowSound.currentTime = 0; // Reset the sound to the start
@@ -40,22 +70,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     currentScore++;
     scoreElement.textContent = `Score: ${currentScore}`;
 
-    // Send the updated score to the backend
-    fetch(`${BACKEND_URL}/update-score`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, increment: 1 }),
-    }).catch((error) => console.error("Error updating score:", error));
-  });
+    // Add the click to the queue and process the queue
+    clickQueue.push(1);
+    processQueue();
+  };
+
+  photoButton.addEventListener("mousedown", handleCatClick);
 
   // Reset cat image on mouseup or mouseleave
   photoButton.addEventListener("mouseup", () => {
-    catImage.src = "./images/cat.png"; // Revert to the original cat image
+    catImage.src = "./images/yellow40.png"; // Revert to the original cat image
   });
   photoButton.addEventListener("mouseleave", () => {
-    catImage.src = "./images/cat.png"; // Reset to the original cat image
+    catImage.src = "./images/yellow40.png"; // Reset to the original cat image
+  });
+
+  // Handle touch events for mobile devices
+  photoButton.addEventListener("touchstart", (event) => {
+    handleCatClick(); // Use the same click handler for touch events
+    catImage.src = "./images/green100.png"; // Change to the pressed cat image
+  });
+
+  photoButton.addEventListener("touchend", () => {
+    catImage.src = "./images/yellow40.png"; // Revert to the original cat image
   });
 
   // Add event listener to the leaderboard button
